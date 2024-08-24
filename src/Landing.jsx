@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./landing.css"
 import swatvid from "./assets/swatvid.gif"
 
-function Landing(){
+function Landing() {
     const [animate, setAnimate] = useState(false);
     const navigate = useNavigate();
   
@@ -32,9 +32,13 @@ function Landing(){
         };
     }, []);
        
-    return(
-        <div className={`landing`}>
-            <div className="content-container">
+    return (
+        <div className="landing">
+            <div className="main-container">
+                <div className="subscribe-box">
+                    <input type="email" placeholder="Subscribe" />
+                    <button>→</button>
+                </div>
                 <nav className="linkyholder">
                     <ul>
                         <li className={`linky ${animate ? 'slide-down' : ''}`}>
@@ -48,6 +52,13 @@ function Landing(){
                         </li>
                     </ul>
                 </nav>
+                <div className="social-icons">
+                    <a href="#"><i className="fab fa-facebook-f"></i></a>
+                    <a href="#"><i className="fab fa-instagram"></i></a>
+                    <a href="#"><i className="fab fa-twitter"></i></a>
+                    <a href="#"><i className="fab fa-apple"></i></a>
+                    <a href="#"><i className="fab fa-tiktok"></i></a>
+                </div>
             </div>
             <div className="green-mask"></div>
         </div>
