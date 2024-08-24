@@ -89,6 +89,12 @@ img#draggableImage {
     margin: 10px 0;
     opacity: 1;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .linky a, .linky p {
@@ -97,9 +103,14 @@ img#draggableImage {
     transition: text-shadow 0.3s ease;
 }
 
+.linky:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .linky a:hover, .linky p:hover {
     text-shadow: rgb(133, 133, 133) 1px 0 5px;
     text-decoration: underline;
+    display: block;
 }
 
 .logo-holder {
