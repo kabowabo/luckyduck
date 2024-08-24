@@ -32,7 +32,6 @@ import y222 from "./products/y2.2.2.png";
 import y223 from "./products/y2.2.3.png";
 
 const productsData = [
-    /*
     {
       id: 1,
       description: "'goodwin' - doublet hoodie",
@@ -43,6 +42,7 @@ const productsData = [
       about: "Black PZ Today Edition Hoodie. French terry hoodie. Drawstring at hood. Graphic printed at front.Kangaroo pocket.Rib knit hem and cuffs.Part of the Doublet x PZ Today collaboration.",
       path: "/product"
     },
+    /*
     {
       id: 2,
       description: "'rci' - reese cooper hoodie",
