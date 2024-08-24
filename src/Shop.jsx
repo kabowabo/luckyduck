@@ -32,6 +32,7 @@ import y222 from "./products/y2.2.2.png";
 import y223 from "./products/y2.2.3.png";
 
 const productsData = [
+    /*
     {
       id: 1,
       description: "'goodwin' - doublet hoodie",
@@ -147,6 +148,7 @@ const productsData = [
       id: 12,
       path: "javascript: void(0)"
     }
+    */
   ];
 function Shop(){
     
