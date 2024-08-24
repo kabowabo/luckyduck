@@ -13,7 +13,7 @@ function Header(){
                 <nav className="navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
       <a className="nav-link navL1" href="javascript:void(0)" onClick={() => handleClick('/')}>
-        <p>duomo ©</p>
+        <p>lucky duck ©</p>
       </a>
       <a className="nav-link navL2" href="javascript:void(0)" onClick={() => handleClick('/cart')}>
         <img src={cartlogo}/><span className="cartnum"><p>{`(0)`}</p></span>
