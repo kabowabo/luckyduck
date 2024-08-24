@@ -38,8 +38,8 @@ const productsData = [
       imgSrc: doublet2,
       imgSrc2: doublet22,
       imgSrc3: doublet23,
-      price: 390,
-      about: "Black PZ Today Edition Hoodie. French terry hoodie. Drawstring at hood. Graphic printed at front.Kangaroo pocket.Rib knit hem and cuffs.Part of the Doublet x PZ Today collaboration.",
+      price: 49.99,
+      about: "lucky duck original. French terry hoodie.",
       path: "/product"
     },
     /*
