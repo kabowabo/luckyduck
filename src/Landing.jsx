@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./landing.css"
-import swatvid from "./assets/swatvid.gif"
 
 function Landing() {
     const [animate, setAnimate] = useState(false);
@@ -18,17 +17,11 @@ function Landing() {
 
     useEffect(() => {
         document.body.style.height = "100%";
-        document.body.style.backgroundImage = `url(${swatvid})`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundPosition = "center";
-        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundColor = "black"; // Changed to black background
         
         return () => {
             document.body.style.height = "";
-            document.body.style.backgroundImage = "";
-            document.body.style.backgroundSize = "";
-            document.body.style.backgroundPosition = "";
-            document.body.style.backgroundRepeat = "";
+            document.body.style.backgroundColor = ""; // Reset background color on unmount
         };
     }, []);
        
