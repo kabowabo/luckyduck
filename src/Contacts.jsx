@@ -7,9 +7,7 @@ function Contacts(){
             <div className="top-holder left"><p>contact us (00)</p></div>
             <div className="right-top-holder">
                 <p>for all inquiries contact</p>
-                <p>1234@funmail.com</p>
-                <p>last tuesday of each month</p>
-                <p>1-1:30pm</p>
+                <p>dluckyuck@gmail.com</p>
             </div>
 
             <div className="cloud-holder">
