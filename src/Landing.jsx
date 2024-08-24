@@ -5,47 +5,51 @@ import "./landing.css"
 import swatvid from "./assets/swatvid.gif"
 
 function Landing(){
-
     const [animate, setAnimate] = useState(false);
     const navigate = useNavigate();
   
     const handleClick = (path) => {
-      // Start the slide-down animation
-      setAnimate(true);
-  
-      // Wait for the animation to complete before navigating
-      setTimeout(() => {
-        navigate(path);
-        // Optionally reset the animation state if staying on the same page/component
-        setAnimate(false);
-      }, 300); // Match the duration of your CSS transition
+        setAnimate(true);
+        setTimeout(() => {
+            navigate(path);
+            setAnimate(false);
+        }, 300);
     };
 
     useEffect(() => {
-        // Set the body style properties
         document.body.style.height = "100%";
         document.body.style.backgroundImage = `url(${swatvid})`;
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
-            // Cleanup function to reset styles
-            return () => {
-                document.body.style.height = "";
-                document.body.style.backgroundImage = "";
-                document.body.style.backgroundSize = "";
-                document.body.style.backgroundPosition = "";
-                document.body.style.backgroundRepeat = "";
-            };
-        }, []); // Empty dependency array means this effect runs only once on mount
+        
+        return () => {
+            document.body.style.height = "";
+            document.body.style.backgroundImage = "";
+            document.body.style.backgroundSize = "";
+            document.body.style.backgroundPosition = "";
+            document.body.style.backgroundRepeat = "";
+        };
+    }, []);
        
     return(
         <div className={`landing`}>
-    <div className="linkyholder">
-        <div className={`linky ${animate ? 'slide-down' : ''}`}><a id="shop" href="javascript:void(0)" onClick={() => handleClick('/shop')}><p>shop</p></a></div>
-        <div className={`linky ${animate ? 'slide-down' : ''}`}><a id="about" href="javascript:void(0)" onClick={() => handleClick('/about')}><p>about</p></a></div>
-        <div className={`linky ${animate ? 'slide-down' : ''}`}><a id="contacts" href="javascript:void(0)" onClick={() => handleClick('/contacts')}><p>contact us</p></a></div>
-    </div>
-        <div className="green-mask"></div>
+            <div className="content-container">
+                <nav className="linkyholder">
+                    <ul>
+                        <li className={`linky ${animate ? 'slide-down' : ''}`}>
+                            <a href="#" onClick={() => handleClick('/shop')}>shop</a>
+                        </li>
+                        <li className={`linky ${animate ? 'slide-down' : ''}`}>
+                            <a href="#" onClick={() => handleClick('/about')}>about</a>
+                        </li>
+                        <li className={`linky ${animate ? 'slide-down' : ''}`}>
+                            <a href="#" onClick={() => handleClick('/contacts')}>contact us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div className="green-mask"></div>
         </div>
     );
 }
