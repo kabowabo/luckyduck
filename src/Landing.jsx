@@ -35,10 +35,6 @@ function Landing() {
     return (
         <div className="landing">
             <div className="main-container">
-                <div className="subscribe-box">
-                    <input type="email" placeholder="Subscribe" />
-                    <button>→</button>
-                </div>
                 <nav className="linkyholder">
                     <ul>
                         <li className={`linky ${animate ? 'slide-down' : ''}`}>
@@ -59,6 +55,10 @@ function Landing() {
                     <a href="#"><i className="fab fa-apple"></i></a>
                     <a href="#"><i className="fab fa-tiktok"></i></a>
                 </div>
+            </div>
+            <div className="subscribe-box">
+                <input type="email" placeholder="Subscribe" />
+                <button>→</button>
             </div>
             <div className="green-mask"></div>
         </div>
