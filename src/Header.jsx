@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import cartlogo from "./assets/cartlogo.png"
+import cartlogo from "./assets/ducklogo.png"
 
 function Header(){
   const navigate = useNavigate();
