@@ -1,4 +1,4 @@
-    html {
+html {
     height: 100%;
 }
 
@@ -120,7 +120,7 @@ img#draggableImage {
 .linky a:hover, .linky p:hover {
     text-shadow: rgb(133, 133, 133) 1px 0 5px;
     text-decoration: underline;
-    }
+}
 
 .social-icons {
     margin-top: 20px;
@@ -187,10 +187,47 @@ img#draggableImage {
     transform: translateY(20px);
 }
 
-@media (max-width: 540px) and (max-aspect-ratio: 1/1) {
+/* New and Updated Styles */
+
+.landing {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.subscribe-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.subscribe-box input {
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.subscribe-box button {
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 540px) {
     .draggable-image {
         height: 15%;
     }
+    
     @keyframes moveUpDown {
         from {
             top: 35%;
@@ -199,15 +236,29 @@ img#draggableImage {
             top: 45%;
         }
     }
+
     .logo-holder {
         left: 10%;
         width: 80%;
     }
+
     .linkyholder {
         width: 80%;
     }
+
     .logo {
         justify-content: center;
+    }
+
+    .subscribe-box {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        justify-content: center;
+    }
+
+    .subscribe-box input {
+        flex-grow: 1;
     }
 }
 
