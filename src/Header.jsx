@@ -14,8 +14,8 @@ function Header(){
                 <nav className="navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">
       <a className="nav-link navL1" href="javascript:void(0)" onClick={() => handleClick('/')}>
-        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-          <image href={wavylogo} width="100" height="100" />
+        <svg width="1120px" height="630px" viewBox="0 0 560 315" preserveAspectRatio="xMidYMid meet">
+          <image href={wavylogo} width="560" height="315" />
         </svg>
       </a>
       <a className="nav-link navL2" href="javascript:void(0)" onClick={() => handleClick('/cart')}>
