@@ -15,8 +15,8 @@ function Header(){
     <div className="container-fluid">
       <a className="nav-link navL1" href="javascript:void(0)" onClick={() => handleClick('/')}>
         <img src={wavylogo}
-          width="1120" 
-          height="630"/>
+          width="630" 
+          height="1120"/>
       </a>
       <a className="nav-link navL2" href="javascript:void(0)" onClick={() => handleClick('/cart')}>
         <img src={cartlogo}/><span className="cartnum"><p>{`(0)`}</p></span>
