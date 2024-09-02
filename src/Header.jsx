@@ -46,7 +46,23 @@ function Header() {
             marginLeft: 'auto',
           }}
         >
-          <img src={cartlogo} alt="Cart" style={{ width: '24px', height: '24px' }} />
+          <div style={{ 
+            width: '40px', 
+            height: '40px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+          }}>
+            <img 
+              src={cartlogo} 
+              alt="Cart" 
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '100%', 
+                objectFit: 'contain' 
+              }} 
+            />
+          </div>
           <span className="cartnum" style={{ marginLeft: '5px' }}>(0)</span>
         </a>
       </nav>
@@ -55,4 +71,3 @@ function Header() {
 }
 
 export default Header;
-
