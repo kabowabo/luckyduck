@@ -38,8 +38,8 @@ const productsData = [
       imgSrc: doublet2,
       imgSrc2: doublet22,
       imgSrc3: doublet23,
-      price: 49.99,
-      about: "lucky duck original. French terry hoodie.",
+      price: 390,
+      about: "Black PZ Today Edition Hoodie. French terry hoodie. Drawstring at hood. Graphic printed at front.Kangaroo pocket.Rib knit hem and cuffs.Part of the Doublet x PZ Today collaboration.",
       path: "/product"
     },
     {
@@ -148,54 +148,37 @@ const productsData = [
       path: "javascript: void(0)"
     }
   ];
-function ProductCard({ product, isHovered, onMouseEnter, onMouseLeave }) {
-    return (
-        <Link 
-            to={`/product${product.path}`} 
-            state={{ product, productsData }}
-            className="product-card"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-        >
-            <img 
-                src={isHovered ? product.imgSrc2 : product.imgSrc} 
-                alt={product.description} 
-            />
-            <div className="product-info">
-                <p>{product.description}</p>
-                <p>${product.price.toFixed(2)}</p>
-            </div>
-        </Link>
-    );
-}
-
-function Shop() {
+function Shop(){
+    
     const [hoveredProductId, setHoveredProductId] = useState(null);
 
-    return (
-        <div className="shop-container">
-            <header className="shop-header">
-                <h1>Shop Our Collection</h1>
-            </header>
-            <main className="shop-main">
-                <div className="product-grid">
-                    {productsData.map((product) => (
-                        <ProductCard 
-                            key={product.id} 
-                            product={product}
-                            isHovered={hoveredProductId === product.id}
-                            onMouseEnter={() => setHoveredProductId(product.id)}
-                            onMouseLeave={() => setHoveredProductId(null)}
-                        />
-                    ))}
-                </div>
-            </main>
-            <footer className="shop-footer">
-                <p>&copy; 2024 Lucky Duck</p>
-            </footer>
+    return(
+        <div className="shop">
+      <div className="main">
+        <div className="grid-aligner">
+          <div className="grid-container">
+          {productsData.map((product) => (
+          <Link 
+            key={product.id} 
+            to={`/product${product.path}`} 
+            state={{ product: product, productsData: productsData}} // Pass the entire product object as state
+            className="colie"
+            onMouseEnter={() => setHoveredProductId(product.id)}
+            onMouseLeave={() => setHoveredProductId(null)}
+          >
+            <img 
+              src={hoveredProductId === product.id ? product.imgSrc2 : product.imgSrc} 
+              alt={product.description} 
+            />
+            <p>{product.description}</p>
+          </Link>
+        ))}
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Shop;
-export { productsData };
+export {productsData};
