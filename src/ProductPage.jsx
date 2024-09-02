@@ -1,90 +1,87 @@
 import React, { useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const ProductPage = () => {
-const [selectedSize, setSelectedSize] = useState(null);
-
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [cart, setCart] = useState([]);
+  
   const location = useLocation();
-  // Assuming the product object is passed correctly via state from the Link component
   const product = location.state?.product;
 
   if (!product) {
     return <div>No product details available</div>;
   }
- 
 
   const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
-            const sizes = [' s ', ' m ', ' l ', ' xl ', ' xxl '];
+
+  const handleAddToCart = () => {
+    if (selectedSize) {
+      const newItem = { ...product, size: selectedSize };
+      setCart([...cart, newItem]);
+      alert(`Added ${product.name} (Size: ${selectedSize}) to cart`);
+    } else {
+      alert('Please select a size');
+    }
+  };
+
+  const sizes = ['s', 'm', 'l', 'xl', 'xxl'];
+
   return (
-
-<div className="product-page">
-    <div className="product-carousel">
+    <div className="product-page">
+      <div className="product-carousel">
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-            <ol className="carousel-indicators">
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9"></li>
-            </ol>
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img className="d-block w-100" src={product.imgSrc} alt="First slide"/>
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100" src={product.imgSrc2} alt="Second slide"/>
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100" src={product.imgSrc3} alt="Third slide"/>
-                </div>
-            </div>
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true">  &lt;---  </span>
-                <span className="visually-hidden">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true">  ---&gt;  </span>
-                <span className="visually-hidden">Next</span>
-            </a>
+          <ol className="carousel-indicators">
+            {product.images.map((_, index) => (
+              <li key={index} data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index} className={index === 0 ? 'active' : ''}></li>
+            ))}
+          </ol>
+          <div className="carousel-inner">
+            {product.images.map((imgSrc, index) => (
+              <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                <img className="d-block w-100" src={imgSrc} alt={`Slide ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true">&lt;</span>
+            <span className="visually-hidden">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true">&gt;</span>
+            <span className="visually-hidden">Next</span>
+          </a>
         </div>
-    </div>
+      </div>
 
-    <div className="product-description">
-        <div className="pr-title"><h1>{product.description}</h1><div className="product-status"><p>sold out</p></div></div>
+      <div className="product-description">
+        <div className="pr-title">
+          <h1>{product.description}</h1>
+          <div className="product-status"><p>Sold Out</p></div>
+        </div>
         <div className="box">
-            <div className="price"><p>${product.price}</p></div>
-
-
-
-  <div className="size">
-    {sizes.map((size) => (
-      <a 
-        key={size} 
-        className={`onesie ${selectedSize === size ? 'selected' : ''}`} 
-        onClick={() => handleSizeClick(size)}
-        href="javascript:void(0)"
-      >
-        {size}
-      </a>
-    ))}
-  </div>
-        <a className="atc" href='javascript:void(0)'>add to cart</a>
+          <div className="price"><p>${product.price}</p></div>
+          <div className="size">
+            {sizes.map((size) => (
+              <a 
+                key={size} 
+                className={`onesie ${selectedSize === size ? 'selected' : ''}`} 
+                onClick={() => handleSizeClick(size)}
+                href="javascript:void(0)"
+              >
+                {size}
+              </a>
+            ))}
+          </div>
+          <a className="atc" href="javascript:void(0)" onClick={handleAddToCart}>Add to Cart</a>
         </div>
         <div className="about">
-            <p>about</p>
-            <p>{product.about}</p>
+          <p>About</p>
+          <p>{product.about}</p>
         </div>
+      </div>
     </div>
-
-    </div>
-
   );
 };
 
