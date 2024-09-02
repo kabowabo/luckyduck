@@ -42,7 +42,6 @@ const productsData = [
       about: "lucky duck original. French terry hoodie.",
       path: "/product"
     },
-    /*
     {
       id: 2,
       description: "'rci' - reese cooper hoodie",
@@ -148,7 +147,6 @@ const productsData = [
       id: 12,
       path: "javascript: void(0)"
     }
-    */
   ];
 function ProductCard({ product, isHovered, onMouseEnter, onMouseLeave }) {
     return (
