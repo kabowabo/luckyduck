@@ -12,39 +12,47 @@ function Header() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          {/* Home link with logo */}
-          <a 
-            className="nav-link navL1" 
-            href="javascript:void(0)" 
-            onClick={() => handleClick('/')}
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '10px 20px',
+      }}>
+        {/* Home link with logo */}
+        <a 
+          className="nav-link navL1" 
+          href="javascript:void(0)" 
+          onClick={() => handleClick('/')}
+          style={{ flexGrow: 1 }}
+        >
+          <svg 
+            width="560px" 
+            height="315px" 
+            viewBox="0 0 560 315" 
+            preserveAspectRatio="xMidYMid meet"
           >
-            <svg 
-              width="1120px" 
-              height="630px" 
-              viewBox="0 0 560 315" 
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <image href={wavylogo} width="560" height="315" />
-            </svg>
-          </a>
+            <image href={wavylogo} width="560" height="315" />
+          </svg>
+        </a>
 
-          {/* Cart link */}
-          <a 
-            className="nav-link navL2" 
-            href="javascript:void(0)" 
-            onClick={() => handleClick('/cart')}
-          >
-            <img src={cartlogo} alt="Cart" />
-            <span className="cartnum">
-              <p>(0)</p>
-            </span>
-          </a>
-        </div>
+        {/* Cart link */}
+        <a 
+          className="nav-link navL2" 
+          href="javascript:void(0)" 
+          onClick={() => handleClick('/cart')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginLeft: 'auto',
+          }}
+        >
+          <img src={cartlogo} alt="Cart" style={{ width: '24px', height: '24px' }} />
+          <span className="cartnum" style={{ marginLeft: '5px' }}>(0)</span>
+        </a>
       </nav>
     </header>
   );
 }
 
 export default Header;
+
